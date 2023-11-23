@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <link rel="stylesheet" href="contact.css" />
+          <title>ContactUS</title>
+     </head>
+     <body>
+          <header>
+               <div class="nav">
+                    <ul class="links">
+                         <li><a href="../index.php">HOME</a></li>
+                         <li><a href="ListRoom">LISTROOM</a></li>
+                         <li><a href="AboutUs">ABOUTUS</a></li>
+                         <li><a href="Contact">CONTACT</a></li>
+                    </ul>
+               </div>
+          </header>
+          <div>
+               <div class="main_image">
+                    <img src="call.jpg" alt="" />
+               </div>
+               <h1>Talk with our team for more information about anything.</h1>
+               <div class="form_container">
+                    <form action="" name="registerform" method="">
+                         <div class="row">
+                              <div class="input-group">
+                                   <input
+                                        type="text"
+                                        id="fname"
+                                        name="fname"
+                                        required
+                                   />
+                                   <label for="fname" id="l1">firstName:</label>
+                                   <span id="err_fname"></span>
+                              </div>
+                              <div class="input-group">
+                                   <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        maxlength="10"
+                                        required
+                                   />
+                                   <label for="phone" id="l2">phone</label>
+                                   <span id="err_phone"></span>
+                              </div>
+                         </div>
+                         <div class="input-group">
+                              <input
+                                   type="email"
+                                   id="email "
+                                   name="email"
+                                   required
+                              />
+                              <label for="email" id="l3">Email</label>
+                              <span id="err_email"></span>
+                         </div>
+
+                         <div class="input-group">
+                              <textarea
+                                   id="message"
+                                   rows="8"
+                                   required
+                              ></textarea>
+                              <label for="message">
+                                   Enter your message for us !!
+                              </label>
+                         </div>
+
+                         <button type="submit" onclick="ok()">submit</button>
+                    </form>
+               </div>
+               <script src="Form.js"></script>
+          </div>
+     </body>
+</html>
