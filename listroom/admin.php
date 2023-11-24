@@ -33,6 +33,7 @@ $result = mysqli_query($conn, $sql);
             echo "<td>" . $row['room_description'] . "</td>";
             echo "<td><a href='preview_listing.php?id=" . $row['id'] . "' target='_blank'>Preview</a></td>"; // Open preview in a new tab
             echo "<td><a href='approve.php?id=" . $row['id'] . "'>Approve</a></td>";
+            // echo "<td><a href='approve.php'>Approve</a></td>";
             echo "</tr>";
         }
         ?>

@@ -7,11 +7,7 @@
 </head>
 
 <body>
-<<<<<<< HEAD
-    <form action="../index.html" method="post">
-=======
     <form action="login.php" method="post">
->>>>>>> abab5c1 (dashboard updated)
         <h2>LOGIN</h2>
         <?php if (isset($_GET['error'])) { ?>
             <p class="error"><?php echo $_GET['error']; ?></p>

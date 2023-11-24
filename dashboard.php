@@ -61,7 +61,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                 include './loginSystem/db_connec.php';
 
                 // Retrieve approved room listings from the database
-                $sql = "SELECT * FROM room_listings"; //WHERE is_approved = 1
+                $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
                 $result = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -72,7 +72,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
 
                     // Display the room information in the gallery_1 div
                     echo "<div class='room_item'>";
-                    echo "<img height='100px' width='100px' src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
+                    echo "<img height='300px' width='300px' src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
                     echo "<h3>Landlord: " . $landlord_name . "</h3>";
                     echo "<p>Address: " . $address . "</p>";
                     echo "<p>Description: " . $room_description . "</p>";

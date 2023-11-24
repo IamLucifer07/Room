@@ -9,12 +9,12 @@ if (isset($_POST['submit_listing'])) {
     $address = $_POST['address'];
     $room_description = $_POST['room_description'];
 
-    $target_dir = "uploads/"; // photos will be stored here
+    $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gg/room/listroom/uploads/";
     $target_file = $target_dir . basename($_FILES["room_photo"]["name"]);
+
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-    // Check image file 
     $check = getimagesize($_FILES["room_photo"]["tmp_name"]);
     if ($check !== false) {
         $uploadOk = 1;
@@ -23,13 +23,11 @@ if (isset($_POST['submit_listing'])) {
         $uploadOk = 0;
     }
 
-    // Check if file already exists
     if (file_exists($target_file)) {
         echo "Error: File already exists.";
         $uploadOk = 0;
     }
 
-    // Check file size 
     if ($_FILES["room_photo"]["size"] > 500000) {
         echo "Error: File is too large.";
         $uploadOk = 0;
@@ -53,7 +51,7 @@ if (isset($_POST['submit_listing'])) {
 
             if (mysqli_query($conn, $sql)) {
                 echo "Room listing submitted successfully.";
-                header('Location: ../index.php');
+                header('Location: ../dashboard.php');
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }

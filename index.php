@@ -52,7 +52,7 @@
                include './loginSystem/db_connec.php';
 
                // Retrieve approved room listings from the database
-               $sql = "SELECT * FROM room_listings"; //WHERE is_approved = 1
+               $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
                $result = mysqli_query($conn, $sql);
 
                while ($row = mysqli_fetch_assoc($result)) {
