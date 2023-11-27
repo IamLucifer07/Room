@@ -9,7 +9,7 @@ if (isset($_GET['id'])) {
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
 
-    // Display room listing details and image
+
     echo "<h2>Room Listing Preview</h2>";
     echo "<p>Landlord Name: " . $row['landlord_name'] . "</p>";
     echo "<p>Address: " . $row['address'] . "</p>";

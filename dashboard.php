@@ -12,15 +12,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://kit.fontawesome.com/ae8e481308.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="./dashboard.css">
+        <link rel="stylesheet" type="text/css" href="./css/dashboard.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
         <title>HomePage</title>
+        <style>
+
+        </style>
     </head>
 
     <body>
         <header>
-            <div class="user_log">
-                <!-- <h2> Hello, <?php echo $_SESSION['username']; ?></h2> -->
+            <div class="dropdown" style="float:right;">
+                <button class="dropbtn"><?php echo $_SESSION['name']; ?></button>
+                <div class="dropdown-content">
+                    <a href="profile.php">Profile</a>
+                    <a href="./listroom/listings.php">Listings</a>
+                    <a href="./loginSystem/logout.php">logout</a>
+                </div>
+                <!-- <div class="user_log"> </div> -->
+                <!-- <h2> Hello, <?php echo $_SESSION['username']; ?> -->
             </div>
             <!-- <div class="main_log">
             <div class="sub_log">
@@ -82,7 +92,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                 mysqli_close($conn);
                 ?>
             </div>
-            <div class="gallery_2"></div>
+            <div class="gallery_1"></div>
             <div class="gallery_3"></div>
             <div class="gallery_1"></div>
             <div class="gallery_2"></div>

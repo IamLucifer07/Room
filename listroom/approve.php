@@ -1,6 +1,5 @@
 <?php
 session_start();
-// include "./loginSystem/db_connec.php";
 $con = mysqli_connect("localhost", "root", "", "db_rentspot");
 
 if (mysqli_connect_errno()) {
@@ -9,7 +8,7 @@ if (mysqli_connect_errno()) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $listing_id = $_GET['id'];
-    // Perform query
+
     if ($result = mysqli_query($con, "UPDATE room_listings SET is_approved = 1 WHERE id = $listing_id")) {
         echo "Room listing approved.";
         header('Location: admin.php');

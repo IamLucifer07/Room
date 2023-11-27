@@ -44,7 +44,7 @@ if (isset($_POST['btnSave'])) {
 
             $connect = mysqli_connect('localhost', 'root', '', 'db_rentspot');
 
-            echo $sql = "insert into register(name,email,phone,address,username,password) values('$name','$email','$phone','$address','$username','$password')";
+            echo $sql = "insert into users(name,email,phone,address,username,password) values('$name','$email','$phone','$address','$username','$password')";
             $connect->query($sql);
             if ($connect->affected_rows > 0 && $connect->insert_id > 0) {
                 echo 'Registered your account';
