@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ERROR);
 session_start();
 include "./loginSystem/db_connec.php";
 
@@ -57,7 +58,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
         </header>
         <main>
             <div class="image_section">
-                <form class="Search_bar">
+                <form class="search-bar">
                     <input type="search" placeholder="Search for room" />
                     <button>
                         <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,7 +67,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                     </button>
                 </form>
             </div>
-            <div class="gallery_1">
+            <!-- <div class="gallery_1">
                 <?php
                 include './loginSystem/db_connec.php';
 
@@ -80,9 +81,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                     $address = $row['address'];
                     $room_description = $row['room_description'];
 
-                    // Display the room information in the gallery_1 div
+
                     echo "<div class='room_item'>";
-                    echo "<img height='300px' width='300px' src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
+                    echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
                     echo "<h3>Landlord: " . $landlord_name . "</h3>";
                     echo "<p>Address: " . $address . "</p>";
                     echo "<p>Description: " . $room_description . "</p>";
@@ -98,7 +99,40 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             <div class="gallery_2"></div>
             <div class="gallery_3"></div>
             <div class="gallery_2"></div>
-            <div class="gallery_3"></div>
+            <div class="gallery_3"></div> -->
+
+            <div class="gallery">
+                <?php
+                include './loginSystem/db_connec.php';
+
+                $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
+                $result = mysqli_query($conn, $sql);
+
+                $count = 0;
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $photo_filename = $row['photo_filename'];
+                    $landlord_name = $row['landlord_name'];
+                    $address = $row['address'];
+                    $room_description = $row['room_description'];
+
+                    echo "<div class='room_item'>";
+                    echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
+                    echo "<h3>Landlord: " . $landlord_name . "</h3>";
+                    echo "<p>Address: " . $address . "</p>";
+                    echo "<p>Description: " . $room_description . "</p>";
+                    echo "</div>";
+
+                    $count++;
+                    if ($count % 3 === 0) {
+                        echo "<div style='clear:both;'></div>";
+                    }
+                }
+
+                mysqli_close($conn);
+                ?>
+            </div>
+
+
         </main>
         <footer>
             <div class="links">
@@ -107,24 +141,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                 <li><a href="#">List Room</a></li>
                 <li><a href="#">About Us</a></li>
             </div>
-            <div class="news-subscribe">
+            <!-- <div class="news-subscribe">
                 <h3>NEWSLETTER</h3>
                 <form class="form-1">
                     <input type="email" placeholder="Your Email address" required />
                     <br />
                     <button type="submit">SUBSCRIBE</button>
                 </form>
+            </div> -->
+            <div class="social-icon">
+                <h3>Social Media</h3>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-github"></i>
             </div>
-            <div class="location">
+            <div class="location" style="float:right;">
                 <h3>CONTACT US</h3>
                 <li><a href="./contact us/contact.html">Contact Us</a></li>
                 <p>Satdobato, Near Swimming Pool</p>
-                <div class="social-icon">
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-twitter"></i>
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-github"></i>
-                </div>
             </div>
         </footer>
     </body>

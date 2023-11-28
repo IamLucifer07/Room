@@ -1,8 +1,11 @@
 <?php
+error_reporting(E_ERROR);
+
+session_start();
 include '../loginsystem/db_connec.php';
 
-$listing_id = $_GET['id'];
-$sql = "SELECT * FROM room_listings WHERE  $listing_id= id  ";
+$userId = $_SESSION['id'];
+$sql = "SELECT * FROM room_listings WHERE user_id = '$userId'";
 $result = mysqli_query($conn, $sql);
 
 ?>

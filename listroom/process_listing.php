@@ -1,13 +1,14 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+error_reporting(E_ERROR);
 
+session_start();
 if (isset($_POST['submit_listing'])) {
     include '../loginSystem/db_connec.php';
 
     $landlord_name = $_POST['landlord_name'];
     $address = $_POST['address'];
     $room_description = $_POST['room_description'];
+    $userId = $_SESSION['id'];
 
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gg/room/listroom/uploads/";
     $target_file = $target_dir . basename($_FILES["room_photo"]["name"]);
@@ -46,8 +47,8 @@ if (isset($_POST['submit_listing'])) {
             echo $target_file;
             $photo_filename = basename($_FILES["room_photo"]["name"]);
             echo $photo_filename;
-            $sql = "INSERT INTO room_listings (landlord_name, address, room_description, photo_filename) 
-                    VALUES ('$landlord_name', '$address', '$room_description', '$photo_filename')";
+            $sql = "INSERT INTO room_listings (landlord_name, address, room_description, photo_filename, user_id) 
+                    VALUES ('$landlord_name', '$address', '$room_description', '$photo_filename', '$userId')";
 
             if (mysqli_query($conn, $sql)) {
                 echo "Room listing submitted successfully.";
