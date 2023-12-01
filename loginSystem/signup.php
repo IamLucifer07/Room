@@ -78,6 +78,7 @@ function validate_input($data)
 </head>
 
 <body>
+    <a href="../index.php">back to home</a>
 
     <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
         <h2>Register Your Account</h2>

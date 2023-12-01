@@ -16,6 +16,10 @@
         <input type="text" name="address" required>
         <br>
 
+        <label for="phone">Phone Number:</label>
+        <input type="tel" name="phone" required>
+        <br>
+
         <label for="room_description">Room Description:</label>
         <textarea name="room_description" rows="5" required></textarea>
         <br>

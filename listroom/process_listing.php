@@ -7,6 +7,7 @@ if (isset($_POST['submit_listing'])) {
 
     $landlord_name = $_POST['landlord_name'];
     $address = $_POST['address'];
+    $phone = $_POST['phone'];
     $room_description = $_POST['room_description'];
     $userId = $_SESSION['id'];
 
@@ -47,8 +48,8 @@ if (isset($_POST['submit_listing'])) {
             echo $target_file;
             $photo_filename = basename($_FILES["room_photo"]["name"]);
             echo $photo_filename;
-            $sql = "INSERT INTO room_listings (landlord_name, address, room_description, photo_filename, user_id) 
-                    VALUES ('$landlord_name', '$address', '$room_description', '$photo_filename', '$userId')";
+            $sql = "INSERT INTO room_listings (landlord_name, address, phone, room_description, photo_filename, user_id) 
+                    VALUES ('$landlord_name', '$address', '$phone','$room_description', '$photo_filename', '$userId')";
 
             if (mysqli_query($conn, $sql)) {
                 echo "Room listing submitted successfully.";
