@@ -24,7 +24,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             <div class="header-dropdown" style="float:right;">
                 <button class="dropbtn"><?php echo $_SESSION['name']; ?></button>
                 <div class="dropdown-content">
-                    <a href="profile.php">Profile</a>
+
                     <a href="./listroom/listings.php">Listings</a>
                     <a href="./loginSystem/logout.php">Logout</a>
                 </div>
@@ -34,8 +34,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
                 <ul class="links">
                     <li><a href="dashboard.php">Home</a></li>
                     <li><a href="./listroom/listroom.php">List Room</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="./contact us/contact.html">Contact</a></li>
+                    <li><a href="profile.php">Profile</a></li>
+                    <!-- <li><a href="#">About</a></li>
+                    <li><a href="./contact us/contact.html">Contact</a></li> -->
                 </ul>
             </nav>
         </header>
@@ -217,9 +218,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             <div class="footer-links">
                 <h3>USEFUL LINKS</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">List Room</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="dashbaord.php">Home</a></li>
+                    <li><a href="./listroom/listroom.php">List Room</a></li>
+
                 </ul>
             </div>
             <div class="footer-social">
@@ -233,10 +234,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['username'])) {
             </div>
             <div class="footer-contact">
                 <h3>CONTACT US</h3>
-                <ul>
+                <!-- <ul>
                     <li><a href="./contact us/contact.html">Contact Us</a></li>
-                </ul>
+                </ul> -->
                 <p>Satdobato, Near Swimming Pool</p>
+                <p>01-5916910</p>
             </div>
         </footer>
 

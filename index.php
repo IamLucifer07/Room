@@ -14,19 +14,29 @@ include "./loginSystem/db_connec.php";
      <meta charset="UTF-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
      <script src="https://kit.fontawesome.com/ae8e481308.js" crossorigin="anonymous"></script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <link rel="stylesheet" type="text/css" href="./css/dash.css">
      <!-- <link rel="stylesheet" type="text/css" href="./css/website.css"> -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
      <title>HomePage</title>
      <style>
           .sub_log {
-               margin-top: 3px;
                background-color: #45C176;
                height: 50px;
                width: 301px;
                float: right;
                font-size: 32px;
                text-align: center;
+          }
+
+          .logo {
+               padding-left: 17rem;
+          }
+
+          .nav .links {
+               float: none;
+               gap: 30rem;
+               padding-left: 12rem;
           }
      </style>
 </head>
@@ -69,18 +79,18 @@ include "./loginSystem/db_connec.php";
           <div class="logo">RentSpot</div>
           <div class="nav">
                <ul class="links">
-                    <li><a href="dashboard.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="./loginSystem/loginn.php">List Room</a></li>
-                    <li><a href="#">About</a></li>
+                    <!-- <li><a href="#">About</a></li>
                     <li>
                          <a href="./contact us/contact.html">Contact</a>
-                    </li>
+                    </li> -->
                </ul>
           </div>
      </header>
      <main>
           <div class="image_section">
-               <form class="search-bar" id="searchForm">
+               <form action="search.php" method="get" class="search-bar" id="searchForm">
                     <input type="search" placeholder="Search for room" id="searchInput" />
                     <button type="submit">
                          <svg width="40" height="40" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,61 +100,64 @@ include "./loginSystem/db_connec.php";
                </form>
 
           </div>
+          <div class="gallery" id="searchResults">
+
+          </div>
           <!-- <?php
-               include './loginSystem/db_connec.php';
+               // include './loginSystem/db_connec.php';
 
-               $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
-               $result = mysqli_query($conn, $sql);
+               // $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
+               // $result = mysqli_query($conn, $sql);
 
-               while ($row = mysqli_fetch_assoc($result)) {
-                    $photo_filename = $row['photo_filename'];
-                    $landlord_name = $row['landlord_name'];
-                    $address = $row['address'];
-                    $phone = $row['phone'];
-                    $room_description = $row['room_description'];
+               // while ($row = mysqli_fetch_assoc($result)) {
+               //      $photo_filename = $row['photo_filename'];
+               //      $landlord_name = $row['landlord_name'];
+               //      $address = $row['address'];
+               //      $phone = $row['phone'];
+               //      $room_description = $row['room_description'];
 
 
-                    echo "<div class='room_item'>";
-                    echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
-                    echo "<h3>Landlord: " . $landlord_name . "</h3>";
-                    echo "<p>Address: " . $address . "</p>";
-                    echo "<p>Phone: " . $row['phone'] . "</p>";
-                    echo "<p>Description: " . $room_description . "</p>";
-                    echo "</div>";
-               }
+               //      echo "<div class='room_item'>";
+               //      echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
+               //      echo "<h3>Landlord: " . $landlord_name . "</h3>";
+               //      echo "<p>Address: " . $address . "</p>";
+               //      echo "<p>Phone: " . $row['phone'] . "</p>";
+               //      echo "<p>Description: " . $room_description . "</p>";
+               //      echo "</div>";
+               // }
 
-               mysqli_close($conn);
+               // mysqli_close($conn);
                ?>
 
             <div class="gallery">
                 <?php
-                    include './loginSystem/db_connec.php';
+                    // include './loginSystem/db_connec.php';
 
-                    $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
-                    $result = mysqli_query($conn, $sql);
+                    // $sql = "SELECT * FROM room_listings WHERE is_approved = 1";
+                    // $result = mysqli_query($conn, $sql);
 
-                    $count = 0;
-                    while ($row = mysqli_fetch_assoc($result)) {
-                         $photo_filename = $row['photo_filename'];
-                         $landlord_name = $row['landlord_name'];
-                         $address = $row['address'];
-                         $room_description = $row['room_description'];
+                    // $count = 0;
+                    // while ($row = mysqli_fetch_assoc($result)) {
+                    //      $photo_filename = $row['photo_filename'];
+                    //      $landlord_name = $row['landlord_name'];
+                    //      $address = $row['address'];
+                    //      $room_description = $row['room_description'];
 
-                         echo "<div class='room_item'>";
-                         echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
-                         echo "<h3>Landlord: " . $landlord_name . "</h3>";
-                         echo "<p>Address: " . $address . "</p>";
-                         echo "<p>Phone: " . $row['phone'] . "</p>";
-                         echo "<p>Description: " . $room_description . "</p>";
-                         echo "</div>";
+                    //      echo "<div class='room_item'>";
+                    //      echo "<img src='./listroom/uploads/" . $photo_filename . "' alt='Room Photo'>";
+                    //      echo "<h3>Landlord: " . $landlord_name . "</h3>";
+                    //      echo "<p>Address: " . $address . "</p>";
+                    //      echo "<p>Phone: " . $row['phone'] . "</p>";
+                    //      echo "<p>Description: " . $room_description . "</p>";
+                    //      echo "</div>";
 
-                         $count++;
-                         if ($count % 3 === 0) {
-                              echo "<div style='clear:both;'></div>";
-                         }
-                    }
+                    //      $count++;
+                    //      if ($count % 3 === 0) {
+                    //           echo "<div style='clear:both;'></div>";
+                    //      }
+                    // }
 
-                    mysqli_close($conn);
+                    // mysqli_close($conn);
                     ?>
             </div> -->
           <div class="gallery">
@@ -186,9 +199,8 @@ include "./loginSystem/db_connec.php";
           <div class="footer-links">
                <h3>USEFUL LINKS</h3>
                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">List Room</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="./loginSystem/loginn.php">List Room</a></li>
                </ul>
           </div>
           <div class="footer-social">
@@ -202,12 +214,32 @@ include "./loginSystem/db_connec.php";
           </div>
           <div class="footer-contact">
                <h3>CONTACT US</h3>
-               <ul>
+               <!-- <ul>
                     <li><a href="./contact us/contact.html">Contact Us</a></li>
-               </ul>
+               </ul> -->
                <p>Satdobato, Near Swimming Pool</p>
+               <p>01-5916910</p>
           </div>
      </footer>
+     <script>
+          $(document).ready(function() {
+               $('#searchForm').submit(function(e) {
+                    e.preventDefault();
+                    var searchValue = $('#searchInput').val();
+
+                    $.ajax({
+                         type: 'GET',
+                         url: 'search.php',
+                         data: {
+                              query: searchValue
+                         },
+                         success: function(response) {
+                              $('#searchResults').html(response);
+                         }
+                    });
+               });
+          });
+     </script>
 </body>
 
 </html>

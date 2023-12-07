@@ -165,11 +165,12 @@ a{
     margin-bottom: 5px;
 }
 .footer {
-    background-color: #f2f2f2;
+    background: #1690A7;
     padding: 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    padding-left: 100px;
 }
 
 .footer h3 {
@@ -182,8 +183,9 @@ a{
     padding: 0;
 }
 
-.footer ul li {
+.footer .footer-links ul li a{
     margin-bottom: 5px;
+    color: rgb(214, 214, 214);
 }
 
 .footer .footer-links,
@@ -192,14 +194,16 @@ a{
     flex: 1;
     margin-right: 20px;
 }
-
+/* .footer-links ul li{
+    color: rgb(214, 214, 214);
+} */
 .footer .footer-contact {
     margin-right: 0;
 }
 
 .footer p {
     margin-top: 10px;
-    color: #666;
+    color: rgb(214, 214, 214);
 }
 
 .footer .footer-social li {
@@ -209,5 +213,5 @@ a{
 
 .footer .footer-social i {
     font-size: 24px;
-    color: #333;
+    color: rgb(214, 214, 214);
 }

@@ -30,15 +30,15 @@ $resultUsers = mysqli_query($conn, $sqlUsers);
             <a href="../loginSystem/logout.php">logout</a>
         </div>
 
-        <div class="logo">RentSpot</div>
+        <!-- <div class="logo">RentSpot</div> -->
         <div class="nav">
             <ul class="links">
                 <li><a href="../dashboard.php">Home</a></li>
                 <!-- <li><a href="listroom.php">List Room</a></li> -->
-                <li><a href="#">About</a></li>
+                <!-- <li><a href="#">About</a></li>
                 <li>
                     <a href="./contact us/contact.html">Contact</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </header>

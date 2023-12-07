@@ -15,7 +15,55 @@ $result = mysqli_query($conn, $sql);
 <head>
     <title>Listings</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0366d6;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .msg {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
     </style>
     <script>
         function displayMessage(message) {
@@ -31,6 +79,10 @@ $result = mysqli_query($conn, $sql);
 </head>
 
 <body>
+    <div style="float:right;">
+        <a href="../loginSystem/logout.php">logout</a>
+    </div>
+    <li><a href="../dashboard.php">Home</a></li>
     <span class="msg" style="display: none;"></span>
     <h2>Your Rooms</h2>
     <table border="1">
