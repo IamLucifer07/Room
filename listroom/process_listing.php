@@ -9,6 +9,7 @@ if (isset($_POST['submit_listing'])) {
     $address = $_POST['address'];
     $phone = $_POST['phone'];
     $room_description = $_POST['room_description'];
+    // $room_description = uniqid('Room_');
     $userId = $_SESSION['id'];
 
     $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gg/room/listroom/uploads/";
@@ -30,7 +31,7 @@ if (isset($_POST['submit_listing'])) {
         $uploadOk = 0;
     }
 
-    if ($_FILES["room_photo"]["size"] > 500000) {
+    if ($_FILES["room_photo"]["size"] > 50000000) {
         echo "Error: File is too large.";
         $uploadOk = 0;
     }
@@ -47,13 +48,15 @@ if (isset($_POST['submit_listing'])) {
         if (move_uploaded_file($_FILES["room_photo"]["tmp_name"], $target_file)) {
             echo $target_file;
             $photo_filename = basename($_FILES["room_photo"]["name"]);
+            // $photo_extension = pathinfo($_FILES["room_photo"]["name"], PATHINFO_EXTENSION);
+            // $photo_filename = uniqid('room_photo_') . '.' . $photo_extension;
             echo $photo_filename;
             $sql = "INSERT INTO room_listings (landlord_name, address, phone, room_description, photo_filename, user_id) 
                     VALUES ('$landlord_name', '$address', '$phone','$room_description', '$photo_filename', '$userId')";
 
             if (mysqli_query($conn, $sql)) {
                 echo "Room listing submitted successfully.";
-                header('Location: ../dashboard.php');
+                header('Location: listings.php');
             } else {
                 echo "Error: " . $sql . "<br>" . mysqli_error($conn);
             }

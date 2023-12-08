@@ -102,7 +102,7 @@ $result = mysqli_query($conn, $sql);
             echo "<td>" . $row['phone'] . "</td>";
             echo "<td>" . $row['room_description'] . "</td>";
             echo "<td><a href='preview_listings.php?id=" . $row['id'] . "' target='_blank'>Preview</a></td>";
-            echo "<td><a href='delete.php?listing_id=" . $row['id'] . "' onclick='deleteListing(event)'>Delete</a></td>";
+            echo "<td><a href='delete_listings.php?listing_id=" . $row['id'] . "' onclick='deleteListing(event)'>Delete</a></td>";
             echo "</tr>";
         }
         ?>

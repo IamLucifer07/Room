@@ -33,7 +33,7 @@ $resultUsers = mysqli_query($conn, $sqlUsers);
         <!-- <div class="logo">RentSpot</div> -->
         <div class="nav">
             <ul class="links">
-                <li><a href="../dashboard.php">Home</a></li>
+                <li><a href="../index.php">Home</a></li>
                 <!-- <li><a href="listroom.php">List Room</a></li> -->
                 <!-- <li><a href="#">About</a></li>
                 <li>
@@ -89,7 +89,8 @@ $resultUsers = mysqli_query($conn, $sqlUsers);
             echo "<td>" . $row['phone'] . "</td>";
             echo "<td>" . $row['room_description'] . "</td>";
             echo "<td><a href='preview_listings.php?id=" . $row['id'] . "' target='_blank'>Preview</a></td>";
-            echo "<td><a href='delete.php?id=" . $row['id'] . "'>Delete</a></td>";
+            // echo "<td><a href='delete.php?id=" . $row['id'] . "'>Delete</a></td>";
+            echo "<td><a href='delete.php?id=" . $row['id'] . "&type=listing'>Delete</a></td>";
             echo "</tr>";
         }
         ?>
@@ -114,7 +115,13 @@ $resultUsers = mysqli_query($conn, $sqlUsers);
             echo "<td>" . $user['email'] . "</td>";
             echo "<td>" . $user['phone'] . "</td>";
             echo "<td>" . $user['address'] . "</td>";
-            echo "<td><a href='delete_user.php?id=" . $user['id'] . "'>Delete</a></td>";
+            // echo "<td><a href='delete_user.php?id=" . $user['id'] . "'>Delete</a></td>";
+            // echo "<td><a href='delete.php?id=" . $user['id'] . "&usertype=user'>Delete</a></td>";
+            // <td><a href='delete.php?id=<?php echo $user['id']; &type=user'>Delete</a></td>
+            // <td><a href="delete.php?id=<?php echo $user['id']; &type=user">Delete</a></td>;
+            // <td><a href="delete.php?id=<?php echo $user['id']; &type=user">Delete</a></td>;
+            // echo `<td> <a href="delete.php?id= $user['id']; &type=user">Delete</a></td>`;
+            echo '<td><a href="delete.php?id=' . $user['id'] . '&type=user">Delete</a></td>';
             echo "</tr>";
         }
         ?>

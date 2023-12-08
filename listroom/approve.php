@@ -17,6 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 mysqli_close($con);
 
+
 // echo "success";
 // if ($_SERVER["REQUEST_METHOD"] == "GET") {
 //     $listing_id = $_GET['id'];

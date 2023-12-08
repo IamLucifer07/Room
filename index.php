@@ -30,13 +30,13 @@ include "./loginSystem/db_connec.php";
           }
 
           .logo {
-               padding-left: 17rem;
+               padding-left: 13rem;
           }
 
           .nav .links {
                float: none;
-               gap: 30rem;
-               padding-left: 12rem;
+               gap: 28rem;
+               /* padding-left: 12rem; */
           }
      </style>
 </head>
