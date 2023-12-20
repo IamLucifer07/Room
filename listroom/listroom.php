@@ -63,6 +63,7 @@
     <form action="process_listing.php" method="post" enctype="multipart/form-data">
         <label for="landlord_name">Landlord Name:</label>
         <input type="text" name="landlord_name" required>
+        <?php echo isset($err['name']) ? $err['name'] : ''; ?>
         <br>
 
         <label for="address">Address:</label>
@@ -71,6 +72,7 @@
 
         <label for="phone">Phone Number:</label>
         <input type="tel" name="phone" required>
+        <?php echo isset($err['phone']) ? $err['phone'] : ''; ?>
         <br>
 
         <label for="room_description">Room Description:</label>
